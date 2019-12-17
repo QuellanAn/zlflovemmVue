@@ -1,10 +1,10 @@
-# y
+# zlflovemmVue
 
-> y
+> vue 项目的学习笔记以及源代码
 
-## Build Setup
+## 安装使用说明
 
-``` bash
+``` 
 # install dependencies
 npm install
 
@@ -26,5 +26,6 @@ npm run e2e
 # run all tests
 npm test
 ```
+## 配套博文教程
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+[一、Vue 世界初探](https://quellanan.blog.csdn.net/article/details/103581241)
