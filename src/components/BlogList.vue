@@ -1,0 +1,48 @@
+<template>
+  <div >
+    <table>
+      <tr v-for="blog in blogs">
+        <!--<td @click='show_blog(blog.id)'>{{blog.title}}</td>-->
+
+
+        <td>
+          <router-link :to="{name: 'Blog', query: {id: blog.id}}">
+            {{blog.title}}
+          </router-link>
+        </td>
+      </tr>
+    </table>
+  </div>
+</template>
+
+<script>
+    export default {
+      data () {
+        return {
+          title: '博客列表页',
+          blogs: []
+        }
+      },
+      mounted () {
+        this.$http.get('api/interface/blogs/all').then((response) => {
+          console.info(response.body)
+          this.blogs = response.body.blogs
+        }, (response) => {
+          console.error(response)
+        });
+      },
+      methods:{
+        show_blog: function(blog_id) {
+          this.$router.push({name: 'Blog', query: {id: blog_id}})
+        }
+      }
+      }
+
+</script>
+
+<style >
+
+  /*td {*/
+    /*border-bottom: 1px solid grey;*/
+  /*}*/
+</style>

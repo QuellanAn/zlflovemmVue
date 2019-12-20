@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>条件与循环</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app2">
+  <p v-if="seen">现在你看到我了</p>
+  <p v-if="seen2">现在你dd看到我了</p>
+</div>
+
+
+<div id="app4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+
+
+<div id="app5">
+  <ul>
+    <li v-for="(value, key) in object">
+      {{ key }} : {{ value }}
+    </li>
+  </ul>
+</div>
+
+
+<div id="app6">
+  <ul>
+    <li v-for="(value, key, index) in object">
+      {{ index }}. {{ key }} : {{ value }}
+    </li>
+  </ul>
+</div>
+
+<div id="app7">
+  <ul>
+    <li v-for="n in 10">
+      {{ n }}
+    </li>
+  </ul>
+</div>
+
+
+<script>
+  var app3 = new Vue({
+    el: '#app2',
+    data: {
+      seen: true,
+      seen2: false
+    }
+  })
+
+  var app4 = new Vue({
+    el: '#app4',
+    data: {
+      todos: [
+        { text: '学习 JavaScript' },
+        { text: '学习 Vue' },
+        { text: '整个牛项目' }
+      ]
+    }
+  })
+
+  var app5= new Vue({
+    el: '#app5',
+    data: {
+      object: {
+        name: 'quellanan',
+        url: 'http://www.baidu.com',
+        slogan: '学的不仅是技术，更是梦想！'
+      }
+    }
+  })
+
+  var app6= new Vue({
+    el: '#app6',
+    data: {
+      object: {
+        name: 'quellanan',
+        url: 'http://www.baidu.com',
+        slogan: '学的不仅是技术，更是梦想！'
+      }
+    }
+  })
+
+  var app5= new Vue({
+    el: '#app7'
+  })
+
+
+</script>
+</body>
+</html>

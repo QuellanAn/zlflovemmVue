@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单位换算</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app1">
+  千米 : <input type = "text" v-model = "kilometers">
+  米 : <input type = "text" v-model = "meters">
+  <p id="info"></p>
+</div>
+
+<div id="app2">
+  小时 : <input type = "text" v-model = "hour">
+  分钟 : <input type = "text" v-model = "minute">
+  秒 : <input type = "text" v-model = "second">
+  <br>
+  天 : <input type = "text" v-model = "day">
+  <br>
+  星期 : <input type = "text" v-model = "week">
+
+<script type = "text/javascript">
+  var vm = new Vue({
+    el: '#app1',
+    data: {
+      kilometers : 0,
+      meters:0
+    },
+    methods: {
+    },
+    computed :{
+    },
+    watch : {
+      kilometers:function(val) {
+        this.kilometers = val;
+        this.meters = this.kilometers * 1000
+      },
+      meters : function (val) {
+        this.kilometers = val/ 1000;
+        this.meters = val;
+      }
+    }
+  });
+  // $watch 是一个实例方法
+  vm.$watch('kilometers', function (newValue, oldValue) {
+    // 这个回调将在 vm.kilometers 改变后调用
+    document.getElementById ("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+  })
+
+
+
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      second : 0,
+      minute : 0,
+      hour : 0,
+      day : 0,
+      week : 0
+    },
+    methods: {
+    },
+    computed :{
+    },
+    watch : {
+      week:function(val) {
+        this.week = val;
+        this.day = this.week * 7;
+        this.hour = this.day * 24;
+        this.minute = this.hour * 60;
+        this.second = this.minute * 60;
+      },
+      day : function (val) {
+        this.day = val;
+        this.week = this.day/7;
+        this.hour = this.day * 24;
+        this.minute = this.hour * 60;
+        this.second = this.minute * 60;
+      },
+      hour : function (val) {
+        this.hour = val;
+        this.day = this.hour/24;
+        this.week = this.day/7;
+        this.minute = this.hour * 60;
+        this.second = this.minute * 60;
+      },
+      minute : function (val) {
+        this.minute = val;
+        this.hour = this.minute/60;
+        this.day = this.hour/24;
+        this.week = this.day/7;
+        this.second = this.minute * 60;
+      },
+      second : function (val) {
+        this.second = val;
+        this.minute = this.second/60;
+        this.hour = this.minute/60;
+        this.day = this.hour/24;
+        this.week = this.day/7;
+      }
+    }
+  });
+
+
+</script>
+
+
+</body>
+</html>

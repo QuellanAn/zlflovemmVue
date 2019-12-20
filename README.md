@@ -29,3 +29,7 @@ npm test
 ## 配套博文教程
 
 [一、Vue 世界初探](https://quellanan.blog.csdn.net/article/details/103581241)
+
+[二、Vue 页面渲染过程](https://blog.csdn.net/qq_27790011/article/details/103585839)
+
+[三、Vue 的一些语法样例](https://blog.csdn.net/qq_27790011/article/details/103614490)
